@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getArticles, sortArticles } from '../../api';
 import ArticlesList from './ArticlesList';
+import SortArticles from './SortArticles';
 
 
 export default class ArticlesPage extends Component {

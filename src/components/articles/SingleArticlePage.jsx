@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getArticleById, patchArticleVote } from '../../api';
 import ArticleCard from './ArticleCard';
-import CommentsList from '../Comments/CommentsList';
+import CommentsList from '../comments/CommentsList';
 import IconButton from '@material-ui/core/IconButton';
 import ThumbUp from "@material-ui/icons/ThumbUp";
 import ThumbDown from "@material-ui/icons/ThumbDown";
