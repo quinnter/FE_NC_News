@@ -47,6 +47,11 @@ export const patchCommentVote = (comment_id, direction) => {
     })
 }
 
+export const deleteComment = (comment_id) => {
+    return axios.delete(`${baseUrl}/comments/${comment_id}`)
+    .then(res => console.log(res))
+}
+
 export const getArticleById = (article_id) => {
     return axios.get(`${baseUrl}/articles/${article_id}`)
         .then(({ data: { article } }) => {
@@ -60,3 +65,27 @@ export const getCommentsById = (article_id) => {
         return comments
     })  
   }
+
+  export const getTopic = (slug) => {
+    return axios.get(`${baseUrl}/topics/${slug}`)
+    .then(({data: {topic}})=> {
+        return topic
+    })
+}
+
+export const getTopics = (query) => {
+    return axios.get(`${baseUrl}/topics`, {
+        params : query 
+    })
+    .then(({data: {topics}}) => {
+        return topics
+    })
+}
+
+export const getArticlesByTopic = (slug) => {
+    return axios.get(`${baseUrl}/articles?topic=${slug}`)
+    .then(({data: {articles}}) => {
+        console.log(articles)
+        return articles
+    })
+}
