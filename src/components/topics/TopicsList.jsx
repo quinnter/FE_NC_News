@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListAlt from "@material-ui/icons/ListAlt";
+import { Divider } from '@material-ui/core';
 
 
 export default function TopicsList({ topics, side, toggleDrawer }) {
@@ -20,6 +21,7 @@ export default function TopicsList({ topics, side, toggleDrawer }) {
                             <ListItem button key={topic.slug} >
                                 <ListItemIcon>{<ListAlt />}</ListItemIcon>
                                 <ListItemText primary={topic.slug} />
+                                <Divider variant="inset" component="li" />
                             </ListItem>
                         </Link>
 

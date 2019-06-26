@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, FormControl, InputLabel } from '@material-ui/core';
+import { Input, InputLabel } from '@material-ui/core';
 import { getUser } from '../../api';
 
 export default class LoginForm extends Component {
@@ -14,7 +14,6 @@ export default class LoginForm extends Component {
                 <Input
                     label="Enter Username"
                     variant="outlined"
-                    placeholder="Enter Username"
                     onChange={this.storeUserInput}
                 ></Input>
             </form>

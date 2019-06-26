@@ -72,7 +72,6 @@ const useStyles = makeStyles(theme => ({
 export default function NavBar({ loginUser }) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
 
@@ -80,13 +79,10 @@ export default function NavBar({ loginUser }) {
         setAnchorEl(event.currentTarget);
     }
 
-    function handleMobileMenuClose() {
-        setMobileMoreAnchorEl(null);
-    }
+
 
     function handleMenuClose() {
         setAnchorEl(null);
-        handleMobileMenuClose();
     }
 
     const menuId = 'primary-search-account-menu';

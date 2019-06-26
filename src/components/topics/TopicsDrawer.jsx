@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import TopicsList from './TopicsList';
-import { createMuiTheme } from "@material-ui/core/styles"
 import MenuIcon from '@material-ui/icons/Menu';
 import { getTopics } from '../../api';
 import { IconButton } from '@material-ui/core';
-
-
-const theme = createMuiTheme();
 
 export default class TopicsDrawer extends Component {
     state = {
