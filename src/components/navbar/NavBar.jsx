@@ -10,6 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import TopicsDrawer from '../topics/TopicsDrawer';
+import LoginForm from './LoginForm';
 
 
 const useStyles = makeStyles(theme => ({
@@ -68,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function NavBar() {
+export default function NavBar({ loginUser }) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -88,7 +89,6 @@ export default function NavBar() {
         handleMobileMenuClose();
     }
 
-
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -102,6 +102,9 @@ export default function NavBar() {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem>
+                <LoginForm loginUser={loginUser} />
+            </MenuItem>
         </Menu>
     );
 
@@ -109,14 +112,6 @@ export default function NavBar() {
         <div className={classes.grow}>
             <AppBar position="static">
                 <Toolbar>
-                    {/* <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="Open drawer"
-                    >
-                        <MenuIcon />
-                    </IconButton> */}
                     <TopicsDrawer
                         edge="start"
                         className={classes.menuButton}

@@ -11,16 +11,17 @@ import NavBar from './components/navbar/NavBar';
 export default class App extends Component {
   state = {
     loggedInUser: null
-  } 
+  }
   render() {
+    const { loggedInUser } = this.state;
     return (
       <div className="App">
-      <NavBar/>
-      <Router>
-      <ArticlesPage path="/"/>
-      <SingleArticlePage path="/articles/:article_id" />
-      <SingleTopicPage path="/topics/:slug"/>
-      </Router>
+        <NavBar loginUser={this.loginUser} />
+        <Router>
+          <ArticlesPage loggedInUser={loggedInUser} path="/" />
+          <SingleArticlePage loggedInUser={loggedInUser} path="/articles/:article_id" />
+          <SingleTopicPage path="/topics/:slug" />
+        </Router>
       </div>
     );
   }

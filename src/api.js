@@ -84,3 +84,10 @@ export const getArticlesByTopic = (slug) => {
         return articles
     })
 }
+
+export const getUser = (username) => {
+    return axios.get(`${baseUrl}/users/${username}`)
+        .then(({ data: { user } }) => {
+            return user
+        })
+}
