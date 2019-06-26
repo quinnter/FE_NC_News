@@ -10,7 +10,6 @@ import { createMuiTheme } from '@material-ui/core';
 
 
 const theme = createMuiTheme({
-  spacing: 2,
   palette: {
     primary: {
       light: '#f05545',
