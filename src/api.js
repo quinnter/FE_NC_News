@@ -47,11 +47,6 @@ export const patchCommentVote = (comment_id, direction) => {
     })
 }
 
-export const deleteComment = (comment_id) => {
-    return axios.delete(`${baseUrl}/comments/${comment_id}`)
-    .then(res => console.log(res))
-}
-
 export const getArticleById = (article_id) => {
     return axios.get(`${baseUrl}/articles/${article_id}`)
         .then(({ data: { article } }) => {

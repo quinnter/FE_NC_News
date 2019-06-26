@@ -3,6 +3,8 @@ import './App.css';
 import { Router } from "@reach/router";
 import ArticlesPage from './components/articles/ArticlesPage';
 import SingleArticlePage from './components/articles/SingleArticlePage';
+import SingleTopicPage from './components/topics/SingleTopicPage';
+import NavBar from './components/navbar/NavBar';
 
 
 
@@ -13,6 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+      <NavBar/>
       <Router>
       <ArticlesPage path="/"/>
       <SingleArticlePage path="/articles/:article_id" />
