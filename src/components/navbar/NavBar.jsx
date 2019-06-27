@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import TopicsDrawer from '../topics/TopicsDrawer';
 import LoginForm from './LoginForm';
+import { Link } from '@reach/router';
 
 
 const useStyles = makeStyles(theme => ({
@@ -114,9 +115,11 @@ export default function NavBar({ loginUser }) {
                         color="inherit"
                         aria-label="Open drawer"
                     />
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        NC News
-          </Typography>
+                    <Link to={'/'}>
+                        <Typography className={classes.title} variant="h6" noWrap>
+                            NC News
+                    </Typography>
+                    </Link>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />

@@ -38,44 +38,18 @@ const ArticleCard = ({ article, voteChange = 0, classes }) => {
                 <Grid item className={classes.body} justify="center">
                     <p>{article.body}</p>
                 </Grid>
-                <Grid item>
-                    <h4>{article.votes + voteChange}</h4>
+                <Grid item container direction="row" justify="space-between">
+                    <Grid item>
+                        <h4>Comments: {article.comment_count}</h4>
+                    </Grid>
+                    <Grid item>
+                        <h4>{article.votes + voteChange}</h4>
+                    </Grid>
                 </Grid>
             </Grid>
         </div>
     )
 }
-
-{/* <Grid container spacing={2}>
-    <Grid item>
-        <ButtonBase className={classes.image}>
-            <img className={classes.img} alt="complex" src="/static/images/grid/complex.jpg" />
-        </ButtonBase>
-    </Grid>
-    <Grid item xs={12} sm container>
-        <Grid item xs container direction="column" spacing={2}>
-            <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                    Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                    Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    ID: 1030114
-                </Typography>
-                </Grid>
-                <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                    Remove
-                </Typography>
-                </Grid>
-        </Grid>
-        <Grid item>
-            <Typography variant="subtitle1">$19.00</Typography>
-        </Grid>
-    </Grid>
-</Grid> */}
 
 ArticleCard.propTypes = {
     classes: PropTypes.object.isRequired,
