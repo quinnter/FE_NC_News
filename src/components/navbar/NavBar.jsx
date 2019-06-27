@@ -80,8 +80,6 @@ export default function NavBar({ loginUser }) {
         setAnchorEl(event.currentTarget);
     }
 
-
-
     function handleMenuClose() {
         setAnchorEl(null);
     }
@@ -99,7 +97,7 @@ export default function NavBar({ loginUser }) {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <MenuItem>
+            <MenuItem onSubmit={handleMenuClose}>
                 <LoginForm loginUser={loginUser} />
             </MenuItem>
         </Menu>

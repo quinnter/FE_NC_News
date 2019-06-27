@@ -14,8 +14,10 @@ export default class AddCommentForm extends Component {
                     placeholder="Comment..."
                     name="body"
                     value={this.state.body}
+                    required
+                    multiline
                 ></Input>
-                <Button>Reply</Button>
+                <Button type="submit">Reply</Button>
             </form>
         )
     }
@@ -25,6 +27,7 @@ export default class AddCommentForm extends Component {
     }
 
     handleSubmit = event => {
+        console.log('added comment')
         event.preventDefault();
         const { body } = this.state;
         addNewComment(this.props.article_id, { body, username: this.props.loggedInUser })
