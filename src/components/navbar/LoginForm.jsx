@@ -4,7 +4,7 @@ import { getUser } from '../../api';
 
 export default class LoginForm extends Component {
     state = {
-        userInput: null
+        userInput: ''
     }
 
     render() {
