@@ -7,7 +7,7 @@ import SortArticles from './SortArticles';
 export default class ArticlesPage extends Component {
     state = {
         articles: null,
-        sortBy: ''
+        sortBy: '',
     }
     componentDidMount() {
         getArticles()

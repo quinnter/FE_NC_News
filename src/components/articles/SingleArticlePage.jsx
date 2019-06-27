@@ -25,10 +25,12 @@ export default class SingleArticlePage extends Component {
         const { loggedInUser } = this.props;
         return (
             <div>
-                {article && <ArticleCard article={article} voteChange={voteChange} />}
-                <IconButton disabled={voteChange === 1} onClick={() => this.handleVote(1)}> <ThumbUp /> </IconButton>
-                <IconButton disabled={voteChange === -1} onClick={() => this.handleVote(-1)}> <ThumbDown /> </IconButton>
-                <CommentsList article_id={this.props.article_id} loggedInUser={loggedInUser}/>
+                {article && <ArticleCard
+                    article={article}
+                    voteChange={voteChange}
+                    handleVote={this.handleVote}
+                />}
+                <CommentsList article_id={this.props.article_id} loggedInUser={loggedInUser} />
             </div>
         )
     }

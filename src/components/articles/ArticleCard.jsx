@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from "@reach/router";
-import { withStyles, Grid } from '@material-ui/core';
+import { withStyles, Grid, IconButton } from '@material-ui/core';
+import ThumbUp from "@material-ui/icons/ThumbUp";
+import ThumbDown from "@material-ui/icons/ThumbDown";
 import PropTypes from 'prop-types';
 
 const styles = theme => ({
@@ -21,7 +23,7 @@ const styles = theme => ({
     }
 })
 
-const ArticleCard = ({ article, voteChange = 0, classes }) => {
+const ArticleCard = ({ article, voteChange = 0, classes, handleVote }) => {
     return (
         <div className={classes.border}>
             <Grid container spacing={2} direction="column">
@@ -45,10 +47,17 @@ const ArticleCard = ({ article, voteChange = 0, classes }) => {
                     <Grid item>
                         <h4>{article.votes + voteChange}</h4>
                     </Grid>
+                    <Grid item>
+                        <IconButton disabled={voteChange === 1} onClick={() => handleVote(1)}> <ThumbUp /></IconButton>
+                    </Grid>
+                    <Grid item>
+                        <IconButton disabled={voteChange === -1} onClick={() => handleVote(-1)}> <ThumbDown /></IconButton>
+                    </Grid>
                 </Grid>
             </Grid>
         </div>
     )
+
 }
 
 ArticleCard.propTypes = {
