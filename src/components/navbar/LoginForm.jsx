@@ -15,6 +15,7 @@ export default class LoginForm extends Component {
                     label="Enter Username"
                     variant="outlined"
                     onChange={this.storeUserInput}
+                    value={this.state.userInput}
                 ></Input>
             </form>
         )
@@ -29,6 +30,7 @@ export default class LoginForm extends Component {
         const { userInput } = this.state;
         getUser(userInput)
             .then(user => {
+                this.setState({ userInput: "" })
                 this.props.loginUser(user.username)
             })
     }
