@@ -10,6 +10,7 @@ const styles = theme => ({
         border: 0,
         borderRadius: 5,
         boxShadow: '0 3px 5px 2px lightgrey',
+        margin: "10px"
         // padding: "10px",
     },
     description: {
