@@ -37,7 +37,7 @@ const ArticleCard = ({ article, voteChange = 0, classes, handleVote }) => {
                         <h3>By: {article.author}</h3>
                     </Grid>
                 </Grid>
-                <Grid item className={classes.body} justify="center">
+                <Grid item className={classes.body}>
                     <p>{article.body}</p>
                 </Grid>
                 <Grid item container direction="row" justify="space-between">

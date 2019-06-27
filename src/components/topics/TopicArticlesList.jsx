@@ -15,7 +15,7 @@ export default class TopicArticlesList extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.articles !== this.state.articles) { 
+        if (prevProps.slug !== this.props.slug) {
             getArticlesByTopic(this.props.slug)
                 .then(articles => {
                     this.setState({ articles })
