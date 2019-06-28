@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function NavBar({ loginUser }) {
+export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -84,6 +84,11 @@ export default function NavBar({ loginUser }) {
         setAnchorEl(null);
     }
 
+    function handleLogout() {
+        logoutUser()
+        handleMenuClose()
+    }
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -95,11 +100,13 @@ export default function NavBar({ loginUser }) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            {loggedInUser && <MenuItem onClick={handleMenuClose}>Profile</MenuItem>}
             <MenuItem onSubmit={handleMenuClose}>
                 <LoginForm loginUser={loginUser} />
             </MenuItem>
+            {loggedInUser && <MenuItem onClick={handleLogout}>
+                Logout
+            </MenuItem>}
         </Menu>
     );
 

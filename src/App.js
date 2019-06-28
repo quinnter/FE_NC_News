@@ -32,13 +32,22 @@ export default class App extends Component {
     loggedInUser: null,
     error: false,
   }
+
+  componentDidMount() {
+
+  }
+
   render() {
     const { loggedInUser, error } = this.state;
     if (error) return (<ErrorPage error={error} />)
     return (
       <ThemeProvider theme={theme}>
         <div className="App">
-          <NavBar loginUser={this.loginUser} />
+          <NavBar
+            loginUser={this.loginUser}
+            loggedInUser={loggedInUser}
+            logoutUser={this.logoutUser}
+          />
           <Router>
             <ArticlesPage loggedInUser={loggedInUser} path="/" />
             <SingleArticlePage loggedInUser={loggedInUser} path="/articles/:article_id" />
@@ -53,6 +62,13 @@ export default class App extends Component {
 
   loginUser = (username) => {
     this.setState({ loggedInUser: username })
+    localStorage.setItem('loggedInUser', username)
+  }
+
+  logoutUser = () => {
+    this.setState(prevState => {
+      return { loggedInUser: (prevState.loggedInUser = "") }
+    })
   }
 }
 
