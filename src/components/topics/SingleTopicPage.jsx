@@ -2,16 +2,22 @@ import React, { Component } from 'react'
 import { getTopic } from '../../api';
 import TopicCard from './TopicCard';
 import TopicArticlesList from './TopicArticlesList';
+import ErrorPage from '../errors/ErrorPage';
 
 export default class SingleTopicPage extends Component {
     state = {
-        topic: null
+        topic: null,
+        error: false
     }
 
     componentDidMount() {
         getTopic(this.props.slug)
             .then(topic => {
                 this.setState({ topic })
+            })
+            .catch(error => {
+                console.log(error.response)
+                this.setState({ error })
             })
     }
 
@@ -24,9 +30,10 @@ export default class SingleTopicPage extends Component {
         }
     }
 
-
     render() {
-        const { topic } = this.state;
+        const { topic, error } = this.state;
+
+        if (error) return (<ErrorPage error={error} />)
         return (
             <div>
                 {topic && <TopicCard topic={topic} />}
