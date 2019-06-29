@@ -18,6 +18,9 @@ const styles = theme => ({
     row1: {
         padding: "10px"
     },
+    voting: {
+        maxWidth: 120,
+    },
     body: {
         background: "white"
     }
@@ -44,14 +47,16 @@ const ArticleCard = ({ article, voteChange = 0, classes, handleVote }) => {
                     <Grid item>
                         <h4>Comments: {article.comment_count}</h4>
                     </Grid>
-                    <Grid item>
-                        <h4>{article.votes + voteChange}</h4>
-                    </Grid>
-                    <Grid item>
-                        <IconButton disabled={voteChange === 1} onClick={() => handleVote(1)}> <ThumbUp /></IconButton>
-                    </Grid>
-                    <Grid item>
-                        <IconButton disabled={voteChange === -1} onClick={() => handleVote(-1)}> <ThumbDown /></IconButton>
+                    <Grid item container direction="row" className={classes.voting}>
+                        <Grid item>
+                            <h4>{article.votes + voteChange}</h4>
+                        </Grid>
+                        <Grid item>
+                            <IconButton disabled={voteChange === 1} onClick={() => handleVote(1)}> <ThumbUp /></IconButton>
+                        </Grid>
+                        <Grid item>
+                            <IconButton disabled={voteChange === -1} onClick={() => handleVote(-1)}> <ThumbDown /></IconButton>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
