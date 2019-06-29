@@ -11,7 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import TopicsDrawer from '../topics/TopicsDrawer';
 import LoginForm from './LoginForm';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 
 
 const useStyles = makeStyles(theme => ({
@@ -87,6 +87,11 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
     function handleLogout() {
         logoutUser()
         handleMenuClose()
+    }
+
+    function goToProfile() {
+        handleMenuClose()
+        navigate(`profile/${loggedInUser}`)
     }
 
     const menuId = 'primary-search-account-menu';
