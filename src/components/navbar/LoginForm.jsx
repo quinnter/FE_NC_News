@@ -16,6 +16,7 @@ export default class LoginForm extends Component {
                     variant="outlined"
                     onChange={this.storeUserInput}
                     value={this.state.userInput}
+                    required
                 ></Input>
             </form>
         )
