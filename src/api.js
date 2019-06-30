@@ -12,39 +12,39 @@ export const getArticles = (query) => {
 
 export const sortArticles = (sortBy) => {
     return axios.get(`${baseUrl}/articles?sort_by=${sortBy}`)
-    .then(({data: {articles}}) => {
-        return articles
-    })
+        .then(({ data: { articles } }) => {
+            return articles
+        })
 }
 
 export const addNewComment = (article_id, commentToPost) => {
     return axios.post(`${baseUrl}/articles/${article_id}/comments`, commentToPost)
-    .then(({data: {comment}}) => {
-        return comment
-    })
+        .then(({ data: { comment } }) => {
+            return comment
+        })
 }
 
 export const deleteComment = (comment_id) => {
     return axios.delete(`${baseUrl}/comments/${comment_id}`)
-    .then(res => console.log(res))
+        .then(res => console.log(res))
 }
 
 export const patchArticleVote = (article_id, direction) => {
     return axios.patch(`${baseUrl}/articles/${article_id}`, {
-        inc_votes : direction
+        inc_votes: direction
     })
-    .then(({data: {article}}) => {
-        return article
-    })
+        .then(({ data: { article } }) => {
+            return article
+        })
 }
 
 export const patchCommentVote = (comment_id, direction) => {
     return axios.patch(`${baseUrl}/comments/${comment_id}`, {
         inc_votes: direction
     })
-    .then(({data: {comment}}) => {
-        return comment
-    })
+        .then(({ data: { comment } }) => {
+            return comment
+        })
 }
 
 export const getArticleById = (article_id) => {
@@ -56,33 +56,33 @@ export const getArticleById = (article_id) => {
 
 export const getCommentsById = (article_id) => {
     return axios.get(`${baseUrl}/articles/${article_id}/comments`)
-    .then(({data: {comments}}) => {
-        return comments
-    })  
-  }
+        .then(({ data: { comments } }) => {
+            return comments
+        })
+}
 
-  export const getTopic = (slug) => {
+export const getTopic = (slug) => {
     return axios.get(`${baseUrl}/topics/${slug}`)
-    .then(({data: {topic}})=> {
-        return topic
-    })
+        .then(({ data: { topic } }) => {
+            return topic
+        })
 }
 
 export const getTopics = (query) => {
     return axios.get(`${baseUrl}/topics`, {
-        params : query 
+        params: query
     })
-    .then(({data: {topics}}) => {
-        return topics
-    })
+        .then(({ data: { topics } }) => {
+            return topics
+        })
 }
 
 export const getArticlesByTopic = (slug) => {
     return axios.get(`${baseUrl}/articles?topic=${slug}`)
-    .then(({data: {articles}}) => {
-        console.log(articles)
-        return articles
-    })
+        .then(({ data: { articles } }) => {
+            console.log(articles)
+            return articles
+        })
 }
 
 export const getUser = (username) => {

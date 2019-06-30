@@ -105,7 +105,7 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            {loggedInUser && <MenuItem onClick={handleMenuClose}>Profile</MenuItem>}
+            {loggedInUser && <MenuItem onClick={goToProfile}>Profile</MenuItem>}
             <MenuItem onSubmit={handleMenuClose}>
                 <LoginForm loginUser={loginUser} />
             </MenuItem>
