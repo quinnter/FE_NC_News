@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { getArticlesByTopic } from '../../api';
+import { getArticlesByTopic, sortArticles } from '../../api';
 import ArticleCard from '../articles/ArticleCard';
 import ArticlesList from '../articles/ArticlesList';
+import SortArticles from '../articles/SortArticles';
 
 export default class TopicArticlesList extends Component {
     state = {
-        articles: []
+        articles: [],
+        sortBy: ''
     }
 
     componentDidMount() {
@@ -21,8 +23,16 @@ export default class TopicArticlesList extends Component {
                 .then(articles => {
                     this.setState({ articles })
                 })
+        } else {
+            if (prevState.sortBy !== this.state.sortBy) {
+                sortArticles(this.state.sortBy)
+                    .then(articles => {
+                        this.setState({ articles })
+                    })
+            }
         }
     }
+
 
     render() {
         const { articles } = this.state
@@ -33,8 +43,15 @@ export default class TopicArticlesList extends Component {
                         <ArticleCard key={article.article_id} article={article} />
                     )
                 })} */}
+                <SortArticles handleChange={this.handleChange} />
                 <ArticlesList articles={articles} />
             </div>
         )
+    }
+
+    handleChange = event => {
+        if (event.target.value) {
+            this.setState({ sortBy: event.target.value })
+        }
     }
 }
