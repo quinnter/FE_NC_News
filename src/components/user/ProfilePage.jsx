@@ -9,7 +9,6 @@ export default class ProfilePage extends Component {
     componentDidMount() {
         getUser(this.props.username)
             .then(user => {
-                console.log(user)
                 this.setState({ user })
             })
     }
@@ -20,8 +19,10 @@ export default class ProfilePage extends Component {
             <div>
                 <p>{user.username}</p>
                 <p>{user.name}</p>
-                <img src={user.avatar_url} />
+                <img src={user.avatar_url} alt="Users Profile" />
             </div>
         )
     }
 }
+
+// loggedInUser && loggedInUser === user && for when I style this
