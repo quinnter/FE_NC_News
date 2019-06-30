@@ -12,6 +12,7 @@ export default class SortArticles extends Component {
                         <MenuItem value="votes">Votes</MenuItem>
                         <MenuItem value="comment_count">Comment Count</MenuItem>
                         <MenuItem value="created_at">Date</MenuItem>
+                        <MenuItem value="author">User</MenuItem>
                     </Select>
                 </FormControl>
             </div>
