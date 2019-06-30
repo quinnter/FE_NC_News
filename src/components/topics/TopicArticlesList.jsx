@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getArticlesByTopic } from '../../api';
 import ArticleCard from '../articles/ArticleCard';
+import ArticlesList from '../articles/ArticlesList';
 
 export default class TopicArticlesList extends Component {
     state = {
@@ -27,11 +28,12 @@ export default class TopicArticlesList extends Component {
         const { articles } = this.state
         return (
             <div>
-                {articles.map(article => {
+                {/* {articles.map(article => {
                     return (
                         <ArticleCard key={article.article_id} article={article} />
                     )
-                })}
+                })} */}
+                <ArticlesList articles={articles} />
             </div>
         )
     }
