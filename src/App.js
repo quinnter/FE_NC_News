@@ -53,7 +53,7 @@ export default class App extends Component {
             <ArticlesPage loggedInUser={loggedInUser} path="/" />
             <SingleArticlePage loggedInUser={loggedInUser} path="/articles/:article_id" />
             <SingleTopicPage path="/topics/:slug" />
-            <ProfilePage loggedInUser={loggedInUser} path="/profile/:username" />
+            {loggedInUser && <ProfilePage loggedInUser={loggedInUser} path="/profile/:username" />}
             {/* if path doesn't match, show error DEFAULT */}
             <ErrorPage default />
           </Router>

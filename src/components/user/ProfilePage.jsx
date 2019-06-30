@@ -9,6 +9,7 @@ export default class ProfilePage extends Component {
     componentDidMount() {
         getUser(this.props.username)
             .then(user => {
+                console.log(user)
                 this.setState({ user })
             })
     }
@@ -18,6 +19,8 @@ export default class ProfilePage extends Component {
         return (
             <div>
                 <p>{user.username}</p>
+                <p>{user.name}</p>
+                <img src={user.avatar_url} />
             </div>
         )
     }
