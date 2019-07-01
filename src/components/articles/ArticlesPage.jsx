@@ -41,7 +41,6 @@ export default class ArticlesPage extends Component {
             <div>
                 <SortArticles handleChange={this.handleChange} sortBy={sortBy} />
                 {/* <OrderArticles handleChange={this.handleChange} /> */}
-                {loggedInUser && <p>You've Been Logged In!</p>}
                 {articles && <ArticlesList articles={articles} />}
             </div>
         )

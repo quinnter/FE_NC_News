@@ -143,6 +143,9 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
                             inputProps={{ 'aria-label': 'Search' }}
                         />
                     </div>
+                    <div>
+                        {loggedInUser && <Typography>Welcome {loggedInUser}!</Typography>}
+                    </div>
                     <div className={classes.grow} />
                     <div >
                         <IconButton
