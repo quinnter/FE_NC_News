@@ -87,7 +87,6 @@ export const getTopics = (query) => {
 export const getArticlesByTopic = (slug) => {
     return axios.get(`${baseUrl}/articles?topic=${slug}`)
         .then(({ data: { articles } }) => {
-            console.log(articles)
             return articles
         })
 }
