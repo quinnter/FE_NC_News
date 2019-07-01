@@ -39,7 +39,7 @@ export default class TopicsDrawer extends Component {
                     <Divider />
                     <ListItem>
                         <ListItemIcon><ListAlt /></ListItemIcon>
-                        <ListItemText>Topics</ListItemText>
+                        <ListItemText ><strong>Topics</strong></ListItemText>
                     </ListItem>
                     <Divider />
                     <TopicsList toggleDrawer={this.toggleDrawer} side={this.state.side} topics={this.state.topics} />
