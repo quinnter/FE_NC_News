@@ -5,7 +5,7 @@ import ThumbDown from "@material-ui/icons/ThumbDown";
 import DeleteForever from "@material-ui/icons/DeleteForever"
 import { patchCommentVote, deleteComment } from '../../api';
 import { Button } from '@material-ui/core';
-import PropTypes from 'prop-types';
+
 
 const styles = theme => ({
     border: {
