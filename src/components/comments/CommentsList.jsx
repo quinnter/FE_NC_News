@@ -25,13 +25,11 @@ export default class CommentsList extends Component {
                 {loggedInUser && <AddCommentForm article_id={this.props.article_id} loggedInUser={this.props.loggedInUser} addComment={this.addComment} />}
                 {comments.map(comment => {
                     return (
-                        <div>
-                            <CommentCard
-                                key={comment.comment_id}
-                                comment={comment}
-                                loggedInUser={loggedInUser}
-                                deleteCommentFromState={this.deleteCommentFromState} />
-                        </div>
+                        <CommentCard
+                            key={comment.comment_id}
+                            comment={comment}
+                            loggedInUser={loggedInUser}
+                            deleteCommentFromState={this.deleteCommentFromState} />
                     )
                 })}
             </div>
