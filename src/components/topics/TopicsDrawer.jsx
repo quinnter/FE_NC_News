@@ -7,7 +7,6 @@ import { getTopics } from '../../api';
 import { IconButton, ListItem, ListItemText, Divider } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Home from "@material-ui/icons/Home"
-import { navigate } from '@reach/router/lib/history';
 import { Link } from '@reach/router';
 
 export default class TopicsDrawer extends Component {

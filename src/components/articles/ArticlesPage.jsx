@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getArticles, sortArticles, orderArticles } from '../../api';
 import ArticlesList from './ArticlesList';
 import SortArticles from './SortArticles';
-import OrderArticles from './OrderArticles';
+// import OrderArticles from './OrderArticles';
 
 
 export default class ArticlesPage extends Component {
@@ -40,7 +40,7 @@ export default class ArticlesPage extends Component {
         return (
             <div>
                 <SortArticles handleChange={this.handleChange} />
-                <OrderArticles handleChange={this.handleChange} />
+                {/* <OrderArticles handleChange={this.handleChange} /> */}
                 {loggedInUser && <p>You've Been Logged In!</p>}
                 {articles && <ArticlesList articles={articles} />}
             </div>
@@ -48,7 +48,6 @@ export default class ArticlesPage extends Component {
     }
     handleChange = event => {
         if (event.target.value) {
-            console.log(event.target.value)
             this.setState({ [event.target.name]: event.target.value })
         }
     }
