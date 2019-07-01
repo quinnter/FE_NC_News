@@ -87,6 +87,7 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
     function handleLogout() {
         logoutUser()
         handleMenuClose()
+        navigate('/')
     }
 
     function goToProfile() {

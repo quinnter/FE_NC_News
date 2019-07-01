@@ -11,6 +11,7 @@ import ErrorPage from './components/errors/ErrorPage';
 import ProfilePage from './components/user/ProfilePage';
 
 
+
 const theme = createMuiTheme({
   palette: {
     primary: {
