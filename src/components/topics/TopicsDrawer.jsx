@@ -3,7 +3,9 @@ import Drawer from '@material-ui/core/Drawer';
 import TopicsList from './TopicsList';
 import MenuIcon from '@material-ui/icons/Menu';
 import { getTopics } from '../../api';
-import { IconButton } from '@material-ui/core';
+import { IconButton, ListItem } from '@material-ui/core';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Home from "@material-ui/icons/Home"
 
 export default class TopicsDrawer extends Component {
     state = {
@@ -25,6 +27,9 @@ export default class TopicsDrawer extends Component {
                     <MenuIcon />
                 </IconButton>
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+                    <ListItem button key="home">
+                        <ListItemIcon><Home /></ListItemIcon>
+                    </ListItem>
                     <TopicsList toggleDrawer={this.toggleDrawer} side={this.state.side} topics={this.state.topics} />
                 </Drawer>
             </div>
