@@ -91,7 +91,7 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
 
     function goToProfile() {
         handleMenuClose()
-        navigate(`profile/${loggedInUser}`)
+        navigate(`/profile/${loggedInUser}`)
     }
 
     const menuId = 'primary-search-account-menu';
