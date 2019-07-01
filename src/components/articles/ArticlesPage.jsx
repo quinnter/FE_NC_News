@@ -35,11 +35,11 @@ export default class ArticlesPage extends Component {
     }
 
     render() {
-        const { articles } = this.state
+        const { articles, sortBy } = this.state
         const { loggedInUser } = this.props
         return (
             <div>
-                <SortArticles handleChange={this.handleChange} />
+                <SortArticles handleChange={this.handleChange} sortBy={sortBy} />
                 {/* <OrderArticles handleChange={this.handleChange} /> */}
                 {loggedInUser && <p>You've Been Logged In!</p>}
                 {articles && <ArticlesList articles={articles} />}

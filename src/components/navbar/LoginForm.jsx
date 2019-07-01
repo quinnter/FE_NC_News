@@ -8,6 +8,7 @@ export default class LoginForm extends Component {
     }
 
     render() {
+        const { userInput } = this.state
         return (
             <form onSubmit={this.handleSumbit}>
                 <InputLabel>Enter Username</InputLabel>
@@ -32,6 +33,7 @@ export default class LoginForm extends Component {
         const { userInput } = this.state;
         getUser(userInput)
             .then(user => {
+                if (!user) return (<p>Invalid UserName</p>)
                 this.setState({ userInput: "" })
                 this.props.loginUser(user.username)
             })
