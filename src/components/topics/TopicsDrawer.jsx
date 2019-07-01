@@ -7,11 +7,14 @@ import { getTopics } from '../../api';
 import { IconButton, ListItem, ListItemText, Divider } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Home from "@material-ui/icons/Home"
+import { navigate } from '@reach/router/lib/history';
+import { Link } from '@reach/router';
 
 export default class TopicsDrawer extends Component {
     state = {
         topics: null,
         left: false,
+        //loading true, when update/mount set to false
     }
 
     componentDidMount() {
@@ -28,10 +31,12 @@ export default class TopicsDrawer extends Component {
                     <MenuIcon />
                 </IconButton>
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
-                    <ListItem button key="home">
-                        <ListItemIcon><Home /></ListItemIcon>
-                        <ListItemText>Home</ListItemText>
-                    </ListItem>
+                    <Link to={"/"}>
+                        <ListItem button key="home">
+                            <ListItemIcon><Home /></ListItemIcon>
+                            <ListItemText>Home</ListItemText>
+                        </ListItem>
+                    </Link>
                     <Divider />
                     <ListItem>
                         <ListItemIcon><ListAlt /></ListItemIcon>
@@ -47,4 +52,5 @@ export default class TopicsDrawer extends Component {
     toggleDrawer = (side, open) => (event) => {
         this.setState({ ...this.state, [side]: open });
     };
+
 }
