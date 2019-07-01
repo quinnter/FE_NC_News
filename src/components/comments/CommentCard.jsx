@@ -36,13 +36,35 @@ class CommentCard extends Component {
         const { comment, loggedInUser, classes } = this.props
         return (
             <div className={classes.border}>
-                <h5>{comment.created_at}</h5>
-                <h3>{comment.author}</h3>
-                <p>{comment.body}</p>
-                <p>{comment.votes + voteChange}</p>
-                {loggedInUser && <IconButton disabled={voteChange === 1} onClick={() => this.handleVote(1)}> <ThumbUp /> </IconButton>}
-                {loggedInUser && <IconButton disabled={voteChange === -1} onClick={() => this.handleVote(-1)}> <ThumbDown /> </IconButton>}
-                {loggedInUser && loggedInUser === comment.author && <Button onClick={() => this.handleDelete(comment.comment_id)}><DeleteForever /> Delete </Button>}
+                <Grid container spacing={2}>
+                    <Grid item container direction="row">
+                        <Grid item>
+                            <h3>{comment.author} • {comment.created_at}</h3>
+                        </Grid>
+                    </Grid>
+                    <Grid item>
+                        <p>{comment.body}</p>
+                    </Grid>
+                    <Grid item container direction="row">
+                        <Grid item>
+                            <p>{comment.votes + voteChange} •</p>
+                        </Grid>
+                        <Grid item>
+                            {loggedInUser && <IconButton disabled={voteChange === 1} onClick={() => this.handleVote(1)}> <ThumbUp /> </IconButton>}
+                        </Grid>
+                        <Grid item>
+                            {loggedInUser && <IconButton disabled={voteChange === -1} onClick={() => this.handleVote(-1)}> <ThumbDown /> </IconButton>}
+                        </Grid>
+                        <Grid item>
+                            {loggedInUser && loggedInUser === comment.author && <Button onClick={() => this.handleDelete(comment.comment_id)}><DeleteForever /> Delete </Button>}
+                        </Grid>
+                    </Grid>
+
+
+
+
+
+                </Grid>
                 <Divider />
             </div>
         )
