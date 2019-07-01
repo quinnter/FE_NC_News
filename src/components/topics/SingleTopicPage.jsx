@@ -36,7 +36,7 @@ export default class SingleTopicPage extends Component {
         return (
             <div>
                 {topic && <TopicCard topic={topic} />}
-                <TopicArticlesList slug={this.props.slug} />
+                {topic && <TopicArticlesList slug={this.props.slug} />}
             </div>
         )
     }
