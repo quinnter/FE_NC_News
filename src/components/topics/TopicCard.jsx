@@ -34,8 +34,4 @@ function TopicCard({ topic, classes }) {
     )
 }
 
-TopicCard.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
 export default withStyles(styles)(TopicCard);

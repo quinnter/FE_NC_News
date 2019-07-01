@@ -9,18 +9,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 export default function TopicsList({ topics, side, toggleDrawer }) {
     return (
-        <div
-        >
-
+        <div>
             <List>
                 {topics.map((topic) => {
                     return (
-                        <Link to={`/topics/${topic.slug}`} onClick={toggleDrawer('left', false)} >
-                            <ListItem button key={topic.slug} >
+                        <Link to={`/topics/${topic.slug}`} onClick={toggleDrawer('left', false)} key={topic.slug} >
+                            <ListItem button  >
                                 <ListItemText primary={topic.slug} />
                             </ListItem>
                         </Link>
-
                     )
                 })}
             </List>

@@ -65,9 +65,5 @@ const ArticleCard = ({ article, voteChange = 0, classes, handleVote }) => {
 
 }
 
-ArticleCard.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
 export default withStyles(styles)(ArticleCard);
 
