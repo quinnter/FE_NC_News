@@ -55,7 +55,6 @@ export default class App extends Component {
             <SingleArticlePage loggedInUser={loggedInUser} path="/articles/:article_id" />
             <SingleTopicPage path="/topics/:slug" />
             {loggedInUser && <ProfilePage loggedInUser={loggedInUser} path="/profile/:username" />}
-            {/* if path doesn't match, show error DEFAULT */}
             <ErrorPage default />
           </Router>
         </div>
