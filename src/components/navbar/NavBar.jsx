@@ -12,6 +12,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import TopicsDrawer from '../topics/TopicsDrawer';
 import LoginForm from './LoginForm';
 import { Link, navigate } from '@reach/router';
+import { ButtonBase } from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +32,7 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
-        padding: theme.spacing(1, 1, 1, 1),
+        padding: theme.spacing(1),
         marginLeft: theme.spacing(4),
         marginRight: 0,
         width: '100%',
@@ -46,6 +47,16 @@ const useStyles = makeStyles(theme => ({
             display: 'flex',
         },
     },
+    link: {
+        textDecoration: "none",
+        color: "white",
+        borderRadius: theme.shape.borderRadius,
+        padding: theme.spacing(1),
+        backgroundColor: theme.palette.primary.main,
+        "&:hover": {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
+        }
+    }
 }));
 
 export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
@@ -104,11 +115,13 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
                         color="inherit"
                         aria-label="Open drawer"
                     />
-                    <Link to={'/'}>
-                        <Typography className={classes.title} variant="h6" noWrap>
-                            NC News
-                    </Typography>
-                    </Link>
+                    <ButtonBase aria-label="Go to home page">
+                        <Link to={'/'} className={classes.link} >
+                            <Typography className={classes.title} variant="h6" noWrap>
+                                NC News
+                            </Typography>
+                        </Link>
+                    </ButtonBase>
                     <div className={classes.grow} />
                     <div>
                         {loggedInUser &&
