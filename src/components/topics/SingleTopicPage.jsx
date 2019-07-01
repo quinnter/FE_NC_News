@@ -16,7 +16,6 @@ export default class SingleTopicPage extends Component {
                 this.setState({ topic })
             })
             .catch(error => {
-                console.log(error.response)
                 this.setState({ error })
             })
     }
