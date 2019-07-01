@@ -8,7 +8,8 @@ export default class SingleArticlePage extends Component {
     state = {
         article: null,
         voteChange: 0,
-        error: false
+        error: false,
+        onSinglePage: true,
     }
 
     componentDidMount() {
@@ -22,7 +23,7 @@ export default class SingleArticlePage extends Component {
     }
 
     render() {
-        const { article, voteChange, error } = this.state;
+        const { article, voteChange, error, onSinglePage } = this.state;
         const { loggedInUser } = this.props;
         if (error) return (<ErrorPage error={error} />)
         return (
@@ -30,10 +31,10 @@ export default class SingleArticlePage extends Component {
                 {article && <ArticleCard
                     article={article}
                     voteChange={voteChange}
+                    onSinglePage={onSinglePage}
                     handleVote={this.handleVote}
                 />}
                 <CommentsList article_id={this.props.article_id} loggedInUser={loggedInUser} />
-                {/* if error state show whatever, better here for styling */}
             </div>
         )
     }

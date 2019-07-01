@@ -35,7 +35,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-
+    if (localStorage.getItem("loggedInUser"))
+      this.loginUser(localStorage.getItem("loggedInUser"))
   }
 
   render() {

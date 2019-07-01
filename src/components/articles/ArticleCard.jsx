@@ -25,7 +25,7 @@ const styles = theme => ({
     }
 })
 
-const ArticleCard = ({ article, voteChange = 0, classes, handleVote }) => {
+const ArticleCard = ({ article, voteChange = 0, classes, handleVote, onSinglePage }) => {
     return (
         <div className={classes.border}>
             <Grid container spacing={2} direction="column">
@@ -50,12 +50,16 @@ const ArticleCard = ({ article, voteChange = 0, classes, handleVote }) => {
                         <Grid item>
                             <h4>{article.votes + voteChange}</h4>
                         </Grid>
-                        <Grid item>
-                            <IconButton disabled={voteChange === 1} onClick={() => handleVote(1)}> <ThumbUp /></IconButton>
-                        </Grid>
-                        <Grid item>
-                            <IconButton disabled={voteChange === -1} onClick={() => handleVote(-1)}> <ThumbDown /></IconButton>
-                        </Grid>
+                        {onSinglePage &&
+                            <>
+                                <Grid item>
+                                    <IconButton disabled={voteChange === 1} onClick={() => handleVote(1)}> <ThumbUp /></IconButton>
+                                </Grid>
+                                <Grid item>
+                                    <IconButton disabled={voteChange === -1} onClick={() => handleVote(-1)}> <ThumbDown /></IconButton>
+                                </Grid>
+                            </>
+                        }
                     </Grid>
                 </Grid>
             </Grid>
