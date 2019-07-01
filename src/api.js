@@ -13,6 +13,15 @@ export const getArticles = (query) => {
 export const sortArticles = (sortBy) => {
     return axios.get(`${baseUrl}/articles?sort_by=${sortBy}`)
         .then(({ data: { articles } }) => {
+            console.log(articles)
+            return articles
+        })
+}
+
+export const orderArticles = (order) => {
+    return axios.get(`${baseUrl}/articles?order=${order}`)
+        .then(({ data: { articles } }) => {
+            console.log(articles)
             return articles
         })
 }
