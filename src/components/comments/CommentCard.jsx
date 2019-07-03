@@ -9,7 +9,7 @@ import { Button } from '@material-ui/core';
 
 const styles = theme => ({
     border: {
-        maxWidth: 900,
+        maxWidth: 850,
         border: 0,
         borderRadius: 5,
         padding: "10px",

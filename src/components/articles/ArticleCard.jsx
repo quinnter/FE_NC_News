@@ -1,19 +1,14 @@
 import React from 'react'
 import { Link } from "@reach/router";
-import { withStyles, Grid, IconButton, Icon, Typography } from '@material-ui/core';
+import { withStyles, Grid, IconButton, Icon, Typography, Divider } from '@material-ui/core';
 import ThumbUp from "@material-ui/icons/ThumbUp";
 import ThumbDown from "@material-ui/icons/ThumbDown";
 import Comment from "@material-ui/icons/Comment";
 
 const styles = theme => ({
-    border: {
+    root: {
         maxWidth: 900,
-        // background: "whitesmoke",
-        border: 0,
-        borderRadius: 5,
-        boxShadow: '0 3px 5px 2px lightgrey',
-        padding: "25px",
-        margin: "10px"
+        padding: "4px 4px",
     },
     row1: {
         padding: "10px"
@@ -31,15 +26,16 @@ const styles = theme => ({
 
 const ArticleCard = ({ article, voteChange = 0, classes, handleVote, onSinglePage }) => {
     return (
-        <div className={classes.border}>
-            <Grid container spacing={2} direction="column">
+        <div className={classes.root}>
+            <Divider />
+            <Grid container spacing={2} direction="column" className={classes.body}>
                 <Grid item container direction="row">
                     <Typography variant="subtitle2" color="textSecondary">By: {article.author} • {article.created_at} </Typography>
                 </Grid>
                 <Grid item container direction="row" justify="space-between" className={classes.row1}>
                     <Grid item>
                         <Link to={`/articles/${article.article_id}`}>
-                            <Typography variant="h5"><strong>{article.title}</strong></Typography>
+                            <Typography variant="h5" align="left"><strong>{article.title}</strong></Typography>
                         </Link>
                     </Grid>
                 </Grid>
@@ -73,6 +69,7 @@ const ArticleCard = ({ article, voteChange = 0, classes, handleVote, onSinglePag
                     </Grid>
                 </Grid>
             </Grid>
+            <Divider />
         </div>
     )
 
