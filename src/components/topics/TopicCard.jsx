@@ -3,20 +3,22 @@ import { withStyles, Grid } from '@material-ui/core';
 
 const styles = theme => ({
     topicCard: {
-        maxWidth: 200,
-        height: 250,
+        flexGrow: 1,
+        // maxWidth: 260,
+        // height: 250,
+        minWidth: 260,
         background: theme.palette.primary.light,
         border: 0,
         borderRadius: 5,
         boxShadow: '0 3px 5px 2px lightgrey',
         margin: "10px"
-        // padding: "10px",
     },
     description: {
         maxWidth: 150
     },
     title: {
-        maxWidth: 150
+        maxWidth: 150,
+        textTransform: "capitalize",
     }
 })
 
