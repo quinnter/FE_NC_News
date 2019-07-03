@@ -3,8 +3,32 @@ import { getTopic } from '../../api';
 import TopicCard from './TopicCard';
 import TopicArticlesList from './TopicArticlesList';
 import ErrorPage from '../errors/ErrorPage';
+import { withStyles } from '@material-ui/core';
 
-export default class SingleTopicPage extends Component {
+const styles = theme => ({
+    root: {
+        padding: '2px 4px',
+        display: "flex",
+        alignItems: "center",
+        maxWidth: 900,
+        margin: "10px"
+    },
+    input: {
+        marginLeft: 8,
+        flex: 1,
+    },
+    iconButton: {
+        padding: 10,
+    },
+    divider: {
+        width: 1,
+        height: 28,
+        margin: 4
+    }
+
+})
+
+class SingleTopicPage extends Component {
     state = {
         topic: null,
         error: false
@@ -31,6 +55,7 @@ export default class SingleTopicPage extends Component {
 
     render() {
         const { topic, error } = this.state;
+        const { classes } = this.props;
 
         if (error) return (<ErrorPage error={error} />)
         return (
@@ -46,3 +71,5 @@ export default class SingleTopicPage extends Component {
         }
     }
 }
+
+export default withStyles(styles)(SingleTopicPage);
