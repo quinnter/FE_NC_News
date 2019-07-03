@@ -3,35 +3,24 @@ import { getTopic } from '../../api';
 import TopicCard from './TopicCard';
 import TopicArticlesList from './TopicArticlesList';
 import ErrorPage from '../errors/ErrorPage';
-import { withStyles } from '@material-ui/core';
+import { withStyles, Grid } from '@material-ui/core';
 
 const styles = theme => ({
     root: {
-        padding: '2px 4px',
-        display: "flex",
-        alignItems: "center",
-        maxWidth: 900,
-        margin: "10px"
+        flexGrow: 1,
     },
-    input: {
-        marginLeft: 8,
-        flex: 1,
+    topicCard: {
+        marginLeft: 0
     },
-    iconButton: {
-        padding: 10,
-    },
-    divider: {
-        width: 1,
-        height: 28,
-        margin: 4
-    }
+    articles: {
 
+    }
 })
 
 class SingleTopicPage extends Component {
     state = {
         topic: null,
-        error: false
+        error: false,
     }
 
     componentDidMount() {
@@ -59,9 +48,15 @@ class SingleTopicPage extends Component {
 
         if (error) return (<ErrorPage error={error} />)
         return (
-            <div>
-                {topic && <TopicCard topic={topic} />}
-                {topic && <TopicArticlesList slug={this.props.slug} />}
+            <div className={classes.root}>
+                <Grid container direction="row-reverse" justify="space-evenly">
+                    <Grid item xs={12} sm={3}>
+                        {topic && <TopicCard topic={topic} className={classes.topicCard} />}
+                    </Grid>
+                    <Grid item>
+                        {topic && <TopicArticlesList slug={this.props.slug} />}
+                    </Grid>
+                </Grid>
             </div>
         )
     }

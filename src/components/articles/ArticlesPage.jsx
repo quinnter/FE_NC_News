@@ -36,11 +36,10 @@ export default class ArticlesPage extends Component {
 
     render() {
         const { articles, sortBy } = this.state
-        const { loggedInUser } = this.props
+
         return (
             <div>
                 <SortArticles handleChange={this.handleChange} sortBy={sortBy} />
-                {/* <OrderArticles handleChange={this.handleChange} /> */}
                 {articles && <ArticlesList articles={articles} />}
             </div>
         )

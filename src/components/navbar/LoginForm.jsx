@@ -8,7 +8,6 @@ export default class LoginForm extends Component {
     }
 
     render() {
-        const { userInput } = this.state
         return (
             <form onSubmit={this.handleSumbit}>
                 <InputLabel>Enter Username</InputLabel>
