@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Input, InputLabel, Button } from '@material-ui/core';
+import { Input, InputLabel, Button, withStyles, Divider } from '@material-ui/core';
 import { getUser } from '../../api';
+
 
 export default class LoginForm extends Component {
     state = {
@@ -18,6 +19,7 @@ export default class LoginForm extends Component {
                     value={this.state.userInput}
                     required
                 ></Input>
+                <Divider />
                 <Button type="submit">Login</Button>
             </form>
         )

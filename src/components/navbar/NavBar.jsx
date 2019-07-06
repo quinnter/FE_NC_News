@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             backgroundColor: fade(theme.palette.common.white, 0.25),
         }
-    }
+    },
 }));
 
 export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
@@ -86,6 +86,7 @@ export default function NavBar({ loginUser, loggedInUser, logoutUser }) {
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMenuOpen}
             onClose={handleMenuClose}
+            className={classes.menu}
         >
             {loggedInUser && <MenuItem onClick={goToProfile}>Profile</MenuItem>}
             {!loggedInUser && <MenuItem onSubmit={handleMenuClose}>
