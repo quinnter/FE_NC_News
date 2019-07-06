@@ -31,8 +31,8 @@ export default class TopicsDrawer extends Component {
                 </IconButton>
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
                     <Link to={"/"}>
-                        <ListItem button key="home">
-                            <ListItemIcon><Home /></ListItemIcon>
+                        <ListItem button key="home" onClick={this.toggleDrawer('left', false)}>
+                            <ListItemIcon ><Home /></ListItemIcon>
                             <ListItemText>Home</ListItemText>
                         </ListItem>
                     </Link>
