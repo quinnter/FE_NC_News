@@ -16,7 +16,9 @@ Logged in users can also
 
 ## Built With
 [React](https://reactjs.org/)
+
 [Axios](https://github.com/axios/axios)
+
 [Material UI](https://material-ui.com/)
 
 ## Hosting
@@ -27,6 +29,7 @@ Front End:
 
 Back End:
 [Heroku](https://lauraq-nc-news.herokuapp.com/api/articles)
+
 [Github](https://github.com/quinnter/nc_news)
 
 ## Getting Started
