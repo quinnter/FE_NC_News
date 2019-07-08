@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Router } from "@reach/router";
 import ArticlesPage from './components/articles/ArticlesPage';
 import SingleArticlePage from './components/articles/SingleArticlePage';
