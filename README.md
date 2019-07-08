@@ -21,7 +21,8 @@ Logged in users can also
 
 ## Hosting
 Front End:
-[Netlify]()
+[Netlify](https://lauraqncnews.netlify.com)
+
 [Github](https://github.com/quinnter/fe_nc_news)
 
 Back End:
