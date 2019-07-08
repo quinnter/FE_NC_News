@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { getUser } from '../../api';
+import UserCard from './UserCard';
+
 
 export default class ProfilePage extends Component {
     state = {
@@ -17,12 +19,11 @@ export default class ProfilePage extends Component {
         const { user } = this.state
         return (
             <div>
-                <p>{user.username}</p>
-                <p>{user.name}</p>
-                <img src={user.avatar_url} alt="Users Profile" />
+                <UserCard user={user} />
             </div>
         )
     }
 }
+
 
 // loggedInUser && loggedInUser === user && for when I style this
