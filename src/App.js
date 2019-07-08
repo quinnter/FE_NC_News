@@ -6,11 +6,9 @@ import SingleArticlePage from './components/articles/SingleArticlePage';
 import SingleTopicPage from './components/topics/SingleTopicPage';
 import NavBar from './components/navbar/NavBar';
 import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, withStyles, Container } from '@material-ui/core';
 import ErrorPage from './components/errors/ErrorPage';
 import ProfilePage from './components/user/ProfilePage';
-
-
 
 const theme = createMuiTheme({
   palette: {
@@ -29,7 +27,13 @@ const theme = createMuiTheme({
   },
 });
 
-export default class App extends Component {
+const styles = theme => ({
+  root: {
+    alignContent: "center"
+  }
+})
+
+class App extends Component {
   state = {
     loggedInUser: null,
     error: false,
@@ -42,23 +46,26 @@ export default class App extends Component {
 
   render() {
     const { loggedInUser, error } = this.state;
+    const { classes } = this.props;
     if (error) return (<ErrorPage error={error} />)
     return (
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <NavBar
-            loginUser={this.loginUser}
-            loggedInUser={loggedInUser}
-            logoutUser={this.logoutUser}
-          />
-          <Router>
-            <ArticlesPage loggedInUser={loggedInUser} path="/" />
-            <SingleArticlePage loggedInUser={loggedInUser} path="/articles/:article_id" />
-            <SingleTopicPage path="/topics/:slug" />
-            {loggedInUser && <ProfilePage loggedInUser={loggedInUser} path="/profile/:username" />}
-            <ErrorPage default />
-          </Router>
-        </div>
+        <Container className={classes.root}>
+          <div className="App">
+            <NavBar
+              loginUser={this.loginUser}
+              loggedInUser={loggedInUser}
+              logoutUser={this.logoutUser}
+            />
+            <Router>
+              <ArticlesPage loggedInUser={loggedInUser} path="/" />
+              <SingleArticlePage loggedInUser={loggedInUser} path="/articles/:article_id" />
+              <SingleTopicPage path="/topics/:slug" />
+              {loggedInUser && <ProfilePage loggedInUser={loggedInUser} path="/profile/:username" />}
+              <ErrorPage default />
+            </Router>
+          </div>
+        </Container>
       </ThemeProvider>
     );
   }
@@ -75,3 +82,5 @@ export default class App extends Component {
   }
 }
 
+
+export default withStyles(styles)(App);
