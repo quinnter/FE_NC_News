@@ -21,9 +21,6 @@ const styles = theme => ({
     voting: {
         maxWidth: 120,
     },
-    body: {
-        align: "left"
-    }
 })
 
 class CommentCard extends Component {
@@ -36,10 +33,10 @@ class CommentCard extends Component {
         const { comment, loggedInUser, classes } = this.props
         return (
             <div className={classes.border}>
-                <Grid container spacing={2} direction="column">
+                <Grid container spacing={2} direction="column" >
                     <Grid item container direction="row">
                         <Grid item>
-                            <Typography variant="subtitle1">{comment.author} • {comment.created_at}</Typography>
+                            <Typography variant="subtitle1" color="textSecondary">{comment.author} • {comment.created_at}</Typography>
                         </Grid>
                     </Grid>
                     <Grid item>
