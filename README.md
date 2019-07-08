@@ -23,11 +23,13 @@ Logged in users can also
 
 ## Hosting
 Front End:
+
 [Netlify](https://lauraqncnews.netlify.com)
 
 [Github](https://github.com/quinnter/fe_nc_news)
 
 Back End:
+
 [Heroku](https://lauraq-nc-news.herokuapp.com/api/articles)
 
 [Github](https://github.com/quinnter/nc_news)
