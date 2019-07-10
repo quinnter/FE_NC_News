@@ -26,7 +26,7 @@ Front End:
 
 [Netlify](https://lauraqncnews.netlify.com)
 
-[Github](https://github.com/quinnter/fe_nc_news)
+[Github](https://github.com/quinnter/FE_NC_News.git)
 
 Back End:
 
@@ -46,7 +46,7 @@ Steps:
 Clone this repository
 
 ```bash
-git clone https://github.com/shobbsd/NC-knews-FE-Shaq.git
+git clone https://github.com/quinnter/FE_NC_News.git
 ```
 Navigate to correct directory and install dependencies
 
